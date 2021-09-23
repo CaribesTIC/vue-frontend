@@ -7,21 +7,54 @@ import middlewarePipeline from "@/router/middlewarePipeline";
 
 //Vue.use(VueRouter);
 
-const routes = [
-  {
+const routes = [{
     path: "/",
     name: "home",
     meta: { middleware: [guest], layout: "empty" },
     component: () => import(/* webpackChunkName: "home" */ "../views/Home"),
-  },
-  {
+  }, {
     path: "/dashboard",
     name: "dashboard",
     meta: { middleware: [auth], layout: "default" },
     component: () =>
       import(/* webpackChunkName: "dashboard" */ "../views/Dashboard"),
-  },
-  {
+  }, {
+    path: "/cards",
+    name: "card",
+    meta: { middleware: [auth], layout: "default" },
+    component: () =>
+      import(/* webpackChunkName: "card" */ "../views/Card"),
+  }, {
+    path: "/ui-elements",
+    name: "ui-elements",
+    meta: { middleware: [auth], layout: "default" },
+    component: () =>
+      import(/* webpackChunkName: "ui-elements" */ "../views/UIElements"),
+  }, {
+    path: "/tables",
+    name: "tables",
+    meta: { middleware: [auth], layout: "default" },
+    component: () =>
+      import(/* webpackChunkName: "tables" */ "../views/Tables"),
+  }, {
+    path: "/forms",
+    name: "forms",
+    meta: { middleware: [auth], layout: "default" },
+    component: () =>
+      import(/* webpackChunkName: "forms" */ "../views/Forms"),
+  }, {
+    path: "/modal",
+    name: "modal",
+    meta: { middleware: [auth], layout: "default" },
+    component: () =>
+      import(/* webpackChunkName: "modal" */ "../views/Modal"),
+  }, {
+    path: "/blank",
+    name: "blank",
+    meta: { middleware: [auth], layout: "default" },
+    component: () =>
+      import(/* webpackChunkName: "blank" */ "../views/Blank"),
+  }, {
     path: "/user",
     name: "user",
     meta: { middleware: [auth] },
