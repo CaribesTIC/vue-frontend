@@ -1,12 +1,12 @@
 <template>
-  <div class="max-w-sm p-5 m-auto">
-    <h2 class="mb-4 text-xl font-bold text-center">Login</h2>
+  <div class="p-5 m-auto w-full sm:w-4/12">
+    <h2 class="mb-4 text-xl text-center">Inicio de Sesión</h2>
     <LoginForm class="p-5 bg-white border rounded shadow" />
     <p class="mt-2 text-center text-gray-500">
       <router-link
         to="/register"
-        class="text-pink-500 transition hover:text-pink-600"
-        >Register for an account</router-link
+        class="text-gray-500 transition hover:text-gray-600"
+        >Regístrese para obtener una cuenta</router-link
       >
     </p>
   </div>
@@ -16,7 +16,7 @@
 import LoginForm from "@/components/LoginForm";
 
 export default {
-  name: "LoginView",
+  name: "Login",
   components: {
     LoginForm,
   },

@@ -25,8 +25,7 @@
         <router-link to="/dashboard">
           <HomeIcon class="w-6 h-6 text-white" />
           <span class="sr-only">Dashboard</span>
-        </router-link>
-        <router-link to="/users" v-if="isAdmin">Users</router-link>
+        </router-link>        
       </div>
       
       <router-link to="/" v-else>

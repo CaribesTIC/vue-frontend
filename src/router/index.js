@@ -5,101 +5,81 @@ import admin from "@/middleware/admin";
 import guest from "@/middleware/guest";
 import middlewarePipeline from "@/router/middlewarePipeline";
 
-//Vue.use(VueRouter);
-
 const routes = [{
     path: "/",
     name: "home",
     meta: { middleware: [guest], layout: "empty" },
-    component: () => import(/* webpackChunkName: "home" */ "../views/Home"),
+    component: () => import(/* webpackChunkName: "Home" */ "../views/Home"),
   }, {
     path: "/dashboard",
     name: "dashboard",
     meta: { middleware: [auth], layout: "default" },
-    component: () =>
-      import(/* webpackChunkName: "dashboard" */ "../views/Dashboard"),
+    component: () => import(/* webpackChunkName: "Dashboard" */ "../views/Dashboard"),
   }, {
-    path: "/cards",
+    path: "/card",
     name: "card",
     meta: { middleware: [auth], layout: "default" },
-    component: () =>
-      import(/* webpackChunkName: "card" */ "../views/Card"),
+    component: () => import(/* webpackChunkName: "Card" */ "../views/Card"),
   }, {
     path: "/ui-elements",
     name: "ui-elements",
     meta: { middleware: [auth], layout: "default" },
-    component: () =>
-      import(/* webpackChunkName: "ui-elements" */ "../views/UIElements"),
+    component: () => import(/* webpackChunkName: "UIelements" */ "../views/UIElements"),
   }, {
     path: "/tables",
     name: "tables",
     meta: { middleware: [auth], layout: "default" },
-    component: () =>
-      import(/* webpackChunkName: "tables" */ "../views/Tables"),
+    component: () => import(/* webpackChunkName: "Tables" */ "../views/Tables"),
   }, {
     path: "/forms",
     name: "forms",
     meta: { middleware: [auth], layout: "default" },
-    component: () =>
-      import(/* webpackChunkName: "forms" */ "../views/Forms"),
+    component: () => import(/* webpackChunkName: "Forms" */ "../views/Forms"),
   }, {
     path: "/modal",
     name: "modal",
     meta: { middleware: [auth], layout: "default" },
-    component: () =>
-      import(/* webpackChunkName: "modal" */ "../views/Modal"),
+    component: () => import(/* webpackChunkName: "Modal" */ "../views/Modal"),
   }, {
     path: "/blank",
     name: "blank",
     meta: { middleware: [auth], layout: "default" },
-    component: () =>
-      import(/* webpackChunkName: "blank" */ "../views/Blank"),
+    component: () => import(/* webpackChunkName: "Blank" */ "../views/Blank"),
   }, {
     path: "/user",
     name: "user",
     meta: { middleware: [auth] },
-    component: () => import(/* webpackChunkName: "user" */ "../views/User"),
-  },
-  {
+    component: () => import(/* webpackChunkName: "User" */ "../views/User"),
+  }, {
     path: "/users",
     name: "users",
-    meta: { middleware: [auth, admin] },
-    component: () => import(/* webpackChunkName: "users" */ "../views/Users"),
-  },
-  {
+    meta: { middleware: [auth] },
+    component: () => import(/* webpackChunkName: "Users" */ "../views/Users"),
+  }, {
     path: "/login",
     name: "login",
     meta: { middleware: [guest], layout: "empty" },
-    component: () => import(/* webpackChunkName: "login" */ "../views/Login"),
-  },
-  {
+    component: () => import(/* webpackChunkName: "Login" */ "../views/Login"),
+  }, {
     path: "/register",
     name: "register",
     meta: { middleware: [guest], layout: "empty" },
-    component: () =>
-      import(/* webpackChunkName: "register" */ "../views/Register"),
-  },
-  {
+    component: () => import(/* webpackChunkName: "Register" */ "../views/Register"),
+  }, {
     path: "/reset-password",
-    name: "resetPassword",
-    meta: { middleware: [guest] },
+    name: "reset-password",
+    meta: { middleware: [guest], layout: "empty" },
     component: () =>
-      import(/* webpackChunkName: "reset-password" */ "../views/ResetPassword"),
-  },
-  {
+      import(/* webpackChunkName: "ResetPassword" */ "../views/ResetPassword"),
+  }, {
     path: "/forgot-password",
-    name: "forgotPassword",
-    meta: { middleware: [guest] },
-    component: () =>
-      import(
-        /* webpackChunkName: "forgot-password" */ "../views/ForgotPassword"
-      ),
-  },
-  {
+    name: "forgot-password",
+    meta: { middleware: [guest], layout: "empty" },
+    component: () => import( /* webpackChunkName: "ForgotPassword" */ "../views/ForgotPassword" ),
+  }, {
     path: "/:catchAll(.*)",
-    name: "notFound",
-    component: () =>
-      import(/* webpackChunkName: "not-found" */ "../views/NotFound"),
+    name: "notfound",
+    component: () => import(/* webpackChunkName: "NotFound" */ "../views/NotFound"),
   },
 ];
 

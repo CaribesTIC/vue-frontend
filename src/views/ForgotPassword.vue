@@ -1,20 +1,20 @@
 <template>
-  <div class="max-w-sm p-5 m-auto">
-    <h2 class="mb-4 text-xl font-bold text-center">Forgot Password</h2>
+  <div class="p-5 m-auto w-full sm:w-4/12">
+    <h2 class="mb-4 text-xl text-center">¿Olvidaste tu Contraseña?</h2>
     <form
       @submit.prevent="forgotPassword"
       class="p-5 bg-white border rounded shadow"
     >
       <BaseInput
         type="email"
-        label="Email"
+        label="Correo Electrónico"
         name="email"
         v-model="email"
         autocomplete="email"
         placeholder="luke@jedi.com"
         class="mb-4"
       />
-      <BaseBtn type="submit" text="Send" />
+      <BaseBtn type="submit" text="Enviar contraseña" />
     </form>
     <FlashMessage :message="message" :error="error" />
   </div>

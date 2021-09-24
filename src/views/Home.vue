@@ -1,9 +1,9 @@
 <template>
-  <div
+  <!--div
     class="relative flex items-top justify-center min-h-screen sm:items-center sm:pt-0 bg-gray-100"
-  >
+  -->
     <!--Header/-->
-    <div class="lg:px-4 max-w-md mx-auto sm:px-3">
+    <div class="relative mt-20 lg:px-4 max-w-md mx-auto sm:px-3">
       <div class="flex justify-center pt-4 sm:justify-start sm:pt-0 w-1/2 y-1/2 h-auto m-auto">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
  width="400.000000pt" height="220.000000pt" viewBox="0 0 900.000000 920.000000"
@@ -50,7 +50,7 @@ fill="currentColor" stroke="none">
         </router-link>
       </div>
     </div>
-  </div>
+  <!--/div-->
 </template>
 
 <script>

@@ -60,10 +60,21 @@ import AvatarIcon from "@/components/icons/AvatarIcon";
 import BasePagination from "@/components/BasePagination";
 
 export default {
-  name: "UsersView",
-  components: { FlashMessage, BasePagination, MailIcon, AvatarIcon },
+  name: "Users",
+  components: {
+    FlashMessage,
+    BasePagination,
+    MailIcon,
+    AvatarIcon
+  },
   computed: {
-    ...mapGetters("user", ["loading", "error", "users", "meta", "links"]),
+    ...mapGetters("user", [
+      "loading",
+      "error",
+      "users",
+      "meta",
+      "links"
+  ]),
   },
   beforeRouteEnter(to, from, next) {
     const currentPage = parseInt(to.query.page) || 1;
@@ -71,6 +82,6 @@ export default {
       to.params.page = currentPage;
       next();
     });
-  },
+  }
 };
 </script>

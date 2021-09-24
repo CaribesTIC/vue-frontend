@@ -2,7 +2,7 @@
   <form @submit.prevent="login">
     <BaseInput
       type="email"
-      label="Email"
+      label="Correo Electrónico"
       name="email"
       v-model="email"
       autocomplete="email"
@@ -11,15 +11,20 @@
     />
     <BaseInput
       type="password"
-      label="Password"
+      label="Contraseña"
       name="password"
       v-model="password"
       class="mb-4"
     />
-    <div class="flex justify-between">
-      <BaseBtn type="submit" text="Login" />
-      <router-link to="/forgot-password" class="text-sm base-link">
-        Forgot your password?
+
+<label class="flex items-center"><input type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50i mb-4" name="remember"><span class="ml-2 mb-3 text-sm text-gray-600">Recuérdame</span></label>
+
+
+    <div class="flex items-center justify-between mt-4">
+
+      <BaseBtn type="submit" text="Iniciar sesión"/>
+      <router-link to="/forgot-password" class="underline text-sm text-gray-600 hover:text-gray-900">
+        ¿Olvidaste tu contraseña?
       </router-link>
     </div>
     <FlashMessage :error="error" />
