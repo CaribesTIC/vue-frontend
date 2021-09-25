@@ -1,6 +1,6 @@
 <template>
   <Header />
-  <div class="flex h-screen bg-gray-200 font-roboto">
+  <div class="section">
     <Sidebar />
     <div class="flex-1 flex flex-col overflow-hidden">
       <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">

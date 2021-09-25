@@ -9,7 +9,7 @@ const routes = [{
     path: "/",
     name: "home",
     meta: { middleware: [guest], layout: "empty" },
-    component: () => import(/* webpackChunkName: "Home" */ "../views/Home"),
+    component: () => import(/* webpackChunkName: "Home" */ "../views/Home/Index"),
   }, {
     path: "/dashboard",
     name: "dashboard",
@@ -59,7 +59,7 @@ const routes = [{
     path: "/login",
     name: "login",
     meta: { middleware: [guest], layout: "empty" },
-    component: () => import(/* webpackChunkName: "Login" */ "../views/Login"),
+    component: () => import(/* webpackChunkName: "Login" */ "../views/Login/Index"),
   }, {
     path: "/register",
     name: "register",

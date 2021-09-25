@@ -43,7 +43,7 @@
 <script>
 import { getError } from "@/utils/helpers";
 import BaseBtn from "@/components/BaseBtn";
-import AuthService from "@/services/AuthService";
+import AuthService from "@/apis/AuthService";
 import FlashMessage from "@/components/FlashMessage";
 
 export default {

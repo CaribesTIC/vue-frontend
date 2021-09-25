@@ -1,7 +1,7 @@
 <template>
   <div class="p-5 m-auto w-full sm:w-4/12">
     <h2 class="mb-4 text-xl text-center">Inicio de Sesión</h2>
-    <LoginForm class="p-5 bg-white border rounded shadow" />
+    <Form class="p-5 bg-white border rounded shadow"/>
     <p class="mt-2 text-center text-gray-500">
       <router-link
         to="/register"
@@ -13,12 +13,10 @@
 </template>
 
 <script>
-import LoginForm from "@/components/LoginForm";
+import Form from "./Form";
 
 export default {
   name: "Login",
-  components: {
-    LoginForm,
-  },
+  components: { Form }
 };
 </script>

@@ -3,7 +3,6 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import "./assets/css/app.css"
-//import "@/assets/css/tailwind.css";
 import DashboardLayout from './layouts/DashboardLayout.vue';
 import EmptyLayout from './layouts/EmptyLayout.vue';
 //app.component('default-layout', DashboardLayout);

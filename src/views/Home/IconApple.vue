@@ -1,11 +1,5 @@
 <template>
-  <!--div
-    class="relative flex items-top justify-center min-h-screen sm:items-center sm:pt-0 bg-gray-100"
-  -->
-    <!--Header/-->
-    <div class="relative mt-20 lg:px-4 max-w-md mx-auto sm:px-3">
-      <div class="flex justify-center pt-4 sm:justify-start sm:pt-0 w-1/2 y-1/2 h-auto m-auto">
-        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
  width="400.000000pt" height="220.000000pt" viewBox="0 0 900.000000 920.000000"
  preserveAspectRatio="xMidYMid meet">
 
@@ -33,34 +27,4 @@ fill="currentColor" stroke="none">
 19z"/>
 </g>
 </svg>
-      </div>
-      
-      <div class="flex justify-center text-lg mt-10 space-x-5">      
-        <router-link 
-          to="/login" 
-          class="text-white py-1 px-4 rounded transition bg-blue-500 hover:bg-blue-700"
-        >
-          Iniciar sesión
-        </router-link>
-        <router-link
-          to="/register"
-          class="text-white py-1 px-4 rounded transition bg-gray-500 hover:bg-gray-700"
-        >
-          Registrarse
-        </router-link>
-      </div>
-    </div>
-  <!--/div-->
 </template>
-
-<script>
-//import Header from '@/components/Header.vue'
-
-export default {
-  name: "Home",
-  components:{
-  //  Header
-  }
-};
-</script>
-
