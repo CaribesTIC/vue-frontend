@@ -97,10 +97,10 @@
           class="absolute right-0 mt-2 py-2 w-48 bg-gray-600 rounded-md shadow-xl z-20"
         >
           <router-link
-            to="/user"
+            to="/profile"
             class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
           >
-            {{ authUser ? authUser.name : 'My Profile'}}
+            {{ authUser ? authUser.name : 'Profile'}}
           </router-link>
 
           <router-link

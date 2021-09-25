@@ -6,7 +6,7 @@
         v-if="loading && !users.length"
         key="loading"
       />
-      <ul v-else class="mt-5">
+      <ul v-else class="mt-5 bg-white">
         <li
           v-for="user in users"
           :key="user.id"
@@ -41,6 +41,7 @@
     </transition>
     <transition name="fade">
       <BasePagination
+        class="bg-white"
         path="users"
         :meta="meta"
         :links="links"

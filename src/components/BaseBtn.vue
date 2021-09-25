@@ -1,8 +1,10 @@
 <template>
   <button
+    :disabled="isDisabled"
     :type="type"
     v-on="$listeners"
-    class="text-white py-1 px-4 rounded disabled:opacity-25 transition bg-blue-500 hover:bg-blue-700"
+    class="btn"
+    :class="isDisabled ? 'btn-default' : 'btn-primary'"
   >
     {{ text }}
   </button>
@@ -20,6 +22,10 @@ export default {
       type: String,
       default: "Submit",
     },
+    isDisabled: {
+      type: Boolean,
+      default: false
+    }
   },
 };
 </script>

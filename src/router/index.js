@@ -16,40 +16,10 @@ const routes = [{
     meta: { middleware: [auth], layout: "default" },
     component: () => import(/* webpackChunkName: "Dashboard" */ "../views/Dashboard"),
   }, {
-    path: "/card",
-    name: "card",
-    meta: { middleware: [auth], layout: "default" },
-    component: () => import(/* webpackChunkName: "Card" */ "../views/Card"),
-  }, {
-    path: "/ui-elements",
-    name: "ui-elements",
-    meta: { middleware: [auth], layout: "default" },
-    component: () => import(/* webpackChunkName: "UIelements" */ "../views/UIElements"),
-  }, {
-    path: "/tables",
-    name: "tables",
-    meta: { middleware: [auth], layout: "default" },
-    component: () => import(/* webpackChunkName: "Tables" */ "../views/Tables"),
-  }, {
-    path: "/forms",
-    name: "forms",
-    meta: { middleware: [auth], layout: "default" },
-    component: () => import(/* webpackChunkName: "Forms" */ "../views/Forms"),
-  }, {
-    path: "/modal",
-    name: "modal",
-    meta: { middleware: [auth], layout: "default" },
-    component: () => import(/* webpackChunkName: "Modal" */ "../views/Modal"),
-  }, {
-    path: "/blank",
-    name: "blank",
-    meta: { middleware: [auth], layout: "default" },
-    component: () => import(/* webpackChunkName: "Blank" */ "../views/Blank"),
-  }, {
-    path: "/user",
-    name: "user",
+    path: "/profile",
+    name: "profile",
     meta: { middleware: [auth] },
-    component: () => import(/* webpackChunkName: "User" */ "../views/User"),
+    component: () => import(/* webpackChunkName: "Profile" */ "../views/Profile"),
   }, {
     path: "/users",
     name: "users",
@@ -76,6 +46,36 @@ const routes = [{
     name: "forgot-password",
     meta: { middleware: [guest], layout: "empty" },
     component: () => import( /* webpackChunkName: "ForgotPassword" */ "../views/ForgotPassword" ),
+  }, {
+    path: "/card",
+    name: "card",
+    meta: { middleware: [auth], layout: "default" },
+    component: () => import(/* webpackChunkName: "Card" */ "../views/Themes/Card"),
+  }, {
+    path: "/ui-elements",
+    name: "ui-elements",
+    meta: { middleware: [auth], layout: "default" },
+    component: () => import(/* webpackChunkName: "UIelements" */ "../views/Themes/UIElements"),
+  }, {
+    path: "/tables",
+    name: "tables",
+    meta: { middleware: [auth], layout: "default" },
+    component: () => import(/* webpackChunkName: "Tables" */ "../views/Themes/Tables"),
+  }, {
+    path: "/forms",
+    name: "forms",
+    meta: { middleware: [auth], layout: "default" },
+    component: () => import(/* webpackChunkName: "Forms" */ "../views/Themes/Forms"),
+  }, {
+    path: "/modal",
+    name: "modal",
+    meta: { middleware: [auth], layout: "default" },
+    component: () => import(/* webpackChunkName: "Modal" */ "../views/Themes/Modal"),
+  }, {
+    path: "/blank",
+    name: "blank",
+    meta: { middleware: [auth], layout: "default" },
+    component: () => import(/* webpackChunkName: "Blank" */ "../views/Themes/Blank"),
   }, {
     path: "/:catchAll(.*)",
     name: "notfound",
