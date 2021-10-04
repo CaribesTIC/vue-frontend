@@ -1,11 +1,15 @@
 <template>
   <component :is="layout">
-    <router-view :key="$route.paht"/>
+    <router-view v-slot="{Component}">
+      <transition name="fade" mode="out-in">
+        <component :is="Component" :key="$route.paht"></component>
+      </transition>
+    </router-view>
   </component>
 </template>
 
 <script>
-import { defineComponent, ref, computed } from "vue";
+import { defineComponent, computed } from "vue";
 import { useRouter } from "vue-router";
 
 const defaultLayout = "default";
@@ -24,3 +28,15 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="css" scoped>
+  .fade-enter-active,
+  .fade-leave-active{
+    transition: opacity 0.3s;
+  }
+
+  .fade-enter-from,
+  .fade-leave-to{
+    opacity:0;
+  }
+</style>
