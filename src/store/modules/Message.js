@@ -1,5 +1,5 @@
 import { getError } from "@/utils/helpers";
-import MessageService from "@/apis/MessageService";
+import MessageService from "@/services/MessageService";
 
 export const namespaced = true;
 
