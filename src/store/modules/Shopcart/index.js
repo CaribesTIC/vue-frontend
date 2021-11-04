@@ -1,4 +1,4 @@
-import shop from "../../services/shop.js";
+import shop from "@/services/shop.js";
 import cart from "./Cart.js";
 import products from "./Products.js";
 

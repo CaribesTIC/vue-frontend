@@ -1,4 +1,4 @@
-import shop from "../../services/shop.js";
+import shop from "@/services/shop.js";
 export default {
   namespaced: true,
   strict: true,
