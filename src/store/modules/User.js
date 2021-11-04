@@ -1,5 +1,5 @@
 import { getError } from "@/utils/helpers";
-import UserService from "@/apis/UserService";
+import UserService from "@/services/UserService";
 
 export const namespaced = true;
 

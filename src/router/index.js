@@ -16,6 +16,11 @@ const routes = [{
     meta: { middleware: [auth], layout: "default" },
     component: () => import(/* webpackChunkName: "Dashboard" */ "../views/Dashboard"),
   }, {
+    path: "/products",
+    name: "Products",
+    meta: { middleware: [auth], layout: "default" },
+    component: () => import(/* webpackChunkName: "Shopcart" */ "../views/Shopcart/Tabs.vue"),
+  }, {
     path: "/profile",
     name: "profile",
     meta: { middleware: [auth] },

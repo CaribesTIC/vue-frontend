@@ -14,7 +14,7 @@
 <script>
 import { getError } from "@/utils/helpers";
 import BaseBtn from "@/components/BaseBtn";
-import FileService from "@/apis/FileService";
+import FileService from "@/services/FileService";
 import FlashMessage from "@/components/FlashMessage";
 
 export default {

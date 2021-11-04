@@ -8,6 +8,7 @@ import store from "@/store";
 
 export const apiClient = axios.create({
   baseURL: process.env.VUE_APP_API_URL + "/api",
+  //baseURL: "http://backend.entrepreneur.com/api",
   withCredentials: true, // required to handle the CSRF token
 });
 
@@ -18,7 +19,7 @@ apiClient.interceptors.response.use(
   (response) => {
     return response;
   },
-  function (error) {
+  function(error) {
     if (
       error.response &&
       [401, 419].includes(error.response.status) &&
