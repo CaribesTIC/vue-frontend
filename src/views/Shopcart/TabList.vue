@@ -26,7 +26,6 @@
 
 <script>
 import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
-
 export default {
   name: "AppProductList",
   async mounted() {
@@ -56,7 +55,6 @@ export default {
         scProductsOnStock: 'shopcart/products/productsOnStock',
         scNearlySoldOut:   'shopcart/products/nearlySoldOut'
     }),  
-
     testing() {
       return null;
     },

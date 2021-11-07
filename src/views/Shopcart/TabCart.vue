@@ -1,3 +1,17 @@
+<script setup>
+  import { computed } from "vue";
+  import { useStore } from "vuex";
+  import { currency } from "@/utils/currency.js";
+
+  const store = useStore();
+  const cartItems = computed(() => store.getters["shopcart/cart/productsOnCart"]);
+  const cartTotal = computed(() => currency(store.getters["shopcart/cart/cartTotal"], " $"));
+  const removeItem = index => store.dispatch("shopcart/cart/removeProductFromCart", index);
+  const checkout = () => store.dispatch("checkout");
+  const priceItems = val => currency(val, " $");
+  const pathPhoto = `http://localhost:8000/storage/products/`;
+</script>
+
 <template>
   <div class="demo-tab mx-10">
     <h2>Carrito</h2>
@@ -49,39 +63,7 @@
     </div>
   </div>
 </template>
-<script>
-import { currency } from "@/utils/currency.js";
-export default {
-  name: "AppShoppingCart",
-  data() {
-    return {
-      pathPhoto: `http://localhost:8000/storage/products/`,
-    };
-  },
-  methods: {
-    removeItem(index) {
-      this.$store.dispatch("shopcart/cart/removeProductFromCart", index);
-    },
-    checkout() {
-      this.$store.dispatch("checkout");
-    },
-    priceItems(val) {
-      return currency(val, " $");
-    },
-  },
-  computed: {
-    cartItems() {
-      return this.$store.getters["shopcart/cart/productsOnCart"];
-    },
-    cartTotal() {
-      return currency(this.$store.getters["shopcart/cart/cartTotal"], " $");
-    },
-  },
-};
-</script>
 
 <style scoped>
-ul {
-  text-align: left;
-}
+  ul { text-align: left; }
 </style>

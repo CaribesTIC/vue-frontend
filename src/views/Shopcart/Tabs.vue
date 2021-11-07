@@ -23,7 +23,6 @@
 <script>
 import TabList from "./TabList.vue";
 import TabCart from "./TabCart.vue";
-
 export default {
   components: {
     TabList,
@@ -54,7 +53,6 @@ export default {
   user-select: none;
   overflow-x: auto;
 }
-
 .tab-button {
   padding: 6px 10px;
   border-top-left-radius: 3px;
