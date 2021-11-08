@@ -1,5 +1,29 @@
+<script setup>
+  import { onMounted, computed } from "vue"
+  import { useStore } from "vuex"
+
+  const store = useStore()
+  const pathPhoto = `http://localhost:8000/storage/products/`;
+
+  onMounted( async () => {
+   try {
+     await store.dispatch("shopcart/products/getProducts"); 
+    } catch (error) {
+      console.error(error);
+    }    
+  })
+
+  const scSelectedProduct = computed(() => store.state.shopcart.products.selectedProduct)
+  const scProductsOnStock = computed(() => store.getters['shopcart/products/productsOnStock'])
+  const scNearlySoldOut   = computed(() => store.getters['shopcart/products/nearlySoldOut'])
+
+  const addToCart = (val) => store.dispatch({ type: "shopcart/cart/addProductToCart", product: val })
+  const selectProduct = (val) => store.commit({ type: "shopcart/products/setSelectedProduct", product: val })
+</script>
+
 <template>
   <div class="demo-tab mx-10">
+    <!--{{scSelectedProduct}}-->
     <h2>Listado de productos</h2>
     <hr />
     <div class="flex flex-wrap m-4">
@@ -24,52 +48,11 @@
   </div>
 </template>
 
-<script>
-import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
-export default {
-  name: "AppProductList",
-  async mounted() {
-    try {
-      await this.$store.dispatch("shopcart/products/getProducts");  
-      
-    } catch (error) {
-      console.error(error);
-    }    
-  },
-  data() {
-    return {      
-      pathPhoto: `http://localhost:8000/storage/products/`,
-    };
-  },
-  methods: {
-    ...mapActions({
-      addToCart: "shopcart/cart/addProductToCart",
-    }),
-    ...mapMutations({
-      selectProduct: "shopcart/products/setSelectedProduct",
-    }),
-  },
-  computed: { 
-    ...mapState(["shopcart/products/selectedProduct"]),
-    ...mapGetters({
-        scProductsOnStock: 'shopcart/products/productsOnStock',
-        scNearlySoldOut:   'shopcart/products/nearlySoldOut'
-    }),  
-    testing() {
-      return null;
-    },
-  },
-};
-</script>
-
 <style scoped>
-ul {
-  text-align: left;
-}
-.sold-out {
-  background-color: lightpink;
-  border: 3px solid tomato;
-  padding: 0.3rem;
-  margin: 0.1rem;
-}
+  .sold-out {
+    background-color: lightpink;
+    border: 3px solid tomato;
+    padding: 0.3rem;
+    margin: 0.1rem;
+  }
 </style>

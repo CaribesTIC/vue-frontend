@@ -65,5 +65,5 @@
 </template>
 
 <style scoped>
-  ul { text-align: left; }
+
 </style>

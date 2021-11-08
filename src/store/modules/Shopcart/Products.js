@@ -11,8 +11,8 @@ export const mutations = {
   setProducts(state, products) {
     state.products = products;
   },
-  setSelectedProduct(state, product) {
-    state.selectedProduct = product;
+  setSelectedProduct(state, payload) {
+    state.selectedProduct = payload.product;
   },
   editProduct(state, data) {
     const index = state.products.findIndex(

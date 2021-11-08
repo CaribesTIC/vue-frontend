@@ -23,7 +23,7 @@ export const mutations = {
 };
 
 export const actions = {
-  addProductToCart(context, product) {
+  addProductToCart(context, { product }) {
     if (product.inventory === 0) 
       return;
     const item = context.state.cart.find(item => item.id === product.id);
