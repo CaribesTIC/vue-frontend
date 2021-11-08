@@ -1,12 +1,13 @@
-<script>
-  //https://stackoverflow.com/questions/66384268/how-to-use-component-is-in-vue-3-script-setup
+<script>  
   import TabList from "./TabList.vue";
   import TabCart from "./TabCart.vue";
+  import TabOther from "./TabOther.vue";
   
   export default {
     components: {
       'tab-list': TabList,
-      'tab-cart': TabCart
+      'tab-cart': TabCart,
+      'tab-other': TabOther
     }
   };
 </script>
@@ -15,7 +16,7 @@
   import { ref, computed } from "vue";
   
   const currentTab = ref("List");
-  const tabs = ref(["List", "Cart"]);    
+  const tabs = ref(["List", "Cart", "Other"]);    
   const currentTabComponent = computed(
     () => "tab-" + currentTab.value.toLowerCase()
   );  
@@ -54,6 +55,7 @@
   user-select: none;
   overflow-x: auto;
 }
+
 .tab-button {
   padding: 6px 10px;
   border-top-left-radius: 3px;
@@ -75,3 +77,4 @@
   padding: 10px;
 }
 </style>
+
