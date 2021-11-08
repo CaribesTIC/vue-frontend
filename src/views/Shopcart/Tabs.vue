@@ -1,23 +1,24 @@
 <script>
-import TabList from "./TabList.vue";
-import TabCart from "./TabCart.vue";
-export default {
-  components: {
-    TabList,
-    TabCart,
-  },
-  data() {
-    return {
-      currentTab: "List",
-      tabs: ["List", "Cart"],
-    };
-  },
-  computed: {
-    currentTabComponent() {
-      return "tab-" + this.currentTab.toLowerCase();
-    },
-  },
-};
+  //https://stackoverflow.com/questions/66384268/how-to-use-component-is-in-vue-3-script-setup
+  import TabList from "./TabList.vue";
+  import TabCart from "./TabCart.vue";
+  
+  export default {
+    components: {
+      'tab-list': TabList,
+      'tab-cart': TabCart
+    }
+  };
+</script>
+
+<script setup>
+  import { ref, computed } from "vue";
+  
+  const currentTab = ref("List");
+  const tabs = ref(["List", "Cart"]);    
+  const currentTabComponent = computed(
+    () => "tab-" + currentTab.value.toLowerCase()
+  );  
 </script>
 
 <template>
@@ -41,8 +42,6 @@ export default {
     </div>
   </div>
 </template>
-
-
 
 <style>
 .demo {
