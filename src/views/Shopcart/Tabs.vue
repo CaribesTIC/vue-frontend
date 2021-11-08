@@ -1,3 +1,25 @@
+<script>
+import TabList from "./TabList.vue";
+import TabCart from "./TabCart.vue";
+export default {
+  components: {
+    TabList,
+    TabCart,
+  },
+  data() {
+    return {
+      currentTab: "List",
+      tabs: ["List", "Cart"],
+    };
+  },
+  computed: {
+    currentTabComponent() {
+      return "tab-" + this.currentTab.toLowerCase();
+    },
+  },
+};
+</script>
+
 <template>
   <div
     class="relative flex items-top justify-center min-h-screen sm:items-center sm:pt-0 bg-gray-100"
@@ -20,27 +42,7 @@
   </div>
 </template>
 
-<script>
-import TabList from "./TabList.vue";
-import TabCart from "./TabCart.vue";
-export default {
-  components: {
-    TabList,
-    TabCart,
-  },
-  data() {
-    return {
-      currentTab: "List",
-      tabs: ["List", "Cart"],
-    };
-  },
-  computed: {
-    currentTabComponent() {
-      return "tab-" + this.currentTab.toLowerCase();
-    },
-  },
-};
-</script>
+
 
 <style>
 .demo {

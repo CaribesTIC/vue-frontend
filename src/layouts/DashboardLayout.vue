@@ -8,6 +8,7 @@
           <slot />
         </div>
       </main>
+      <PageFoot />
     </div>
   </div>
 </template>
@@ -17,11 +18,13 @@ import { defineComponent, ref } from "vue";
 
 import Sidebar from "./Sidebar.vue";
 import Header from "./Header.vue";
+import PageFoot from "./PageFoot.vue";
 
 export default defineComponent({
   components: {
     Header,
     Sidebar,
+    PageFoot
   },
 });
 </script>
