@@ -14,9 +14,9 @@
 
 <template>
   <div class="demo-tab mx-10">
-    <h2>Carrito</h2>
-    <hr />
-    <div class="table-data__wrapper w-96 sm:w-full">
+    <h2>Carrito</h2><hr />
+
+    <div class="table-data__wrapper w-auto m-4 sm:m-8">
       <table class="table-data">
         <thead>
           <tr class="">

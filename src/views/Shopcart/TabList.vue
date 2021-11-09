@@ -24,9 +24,8 @@
 <template>
   <div class="demo-tab mx-10">
     <!--{{scSelectedProduct}}-->
-    <h2>Listado de productos</h2>
-    <hr />
-    <div class="flex flex-wrap m-4">
+    <h2>Listado de productos</h2><hr />
+    <div class="flex flex-wrap sm:m-4">
       <div
         :class="{ 'sold-out': scNearlySoldOut(product.id) }"
         @click="selectProduct(product)"
