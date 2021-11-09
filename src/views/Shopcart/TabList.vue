@@ -34,10 +34,9 @@
       >
         <div class="demo-tab m-4 w-60">
           <img :src="pathPhoto + product.photo" class="img-fluid" />
-          <p class="text-blue-500 font-bold">{{ product.title }}</p>
-          <br />
-          {{ product.price }} <br />
-          <i>{{ product.inventory }} </i><br />
+          <p class="text-gray-500 font-bold">{{ product.title }}</p><br />
+          Price: {{ product.price }} $<br />
+          <i class="text-sm">Remain: {{ product.inventory }} units</i><br />
           <button @click="addToCart(product)" class="btn btn-primary">
             Cart
           </button>
