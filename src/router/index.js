@@ -31,6 +31,11 @@ const routes = [{
     meta: { middleware: [auth] },
     component: () => import(/* webpackChunkName: "Users" */ "../views/Users"),
   }, {
+    path: "/userss",
+    name: "userss",
+    meta: { middleware: [auth] },
+    component: () => import(/* webpackChunkName: "Users" */ "../views/Userss/Index"),    
+  }, {
     path: "/login",
     name: "login",
     meta: { middleware: [guest], layout: "empty" },
