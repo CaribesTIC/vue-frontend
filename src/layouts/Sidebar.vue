@@ -64,7 +64,7 @@
 
         <router-link
           class="flex items-center duration-200 mt-4 py-2 px-6 border-l-4"
-          :class="[$route.name === 'users' ? activeClass : inactiveClass]"
+          :class="[($route.name === 'users' || $route.name === 'userShow' ) ? activeClass : inactiveClass]"
           to="/users"
         >
           <svg

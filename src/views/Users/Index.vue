@@ -20,8 +20,11 @@
   import AvatarIcon from "@/components/icons/AvatarIcon";
   import BasePagination from "@/components/BasePagination";
   import PageHeader from "@/components/PageHeader";
+  import { useRouter, useRoute } from 'vue-router'
 
   const store = useStore();
+  const router = useRouter()
+  const route = useRoute()
   const loading = computed(() => store.state.user.loading);
   const error = computed(() => store.state.user.error );
   const users = computed(() => store.state.user.users );
@@ -62,12 +65,12 @@
                     alt=""
                   />
                   <AvatarIcon class="w-10 h-10 text-gray-400 rounded-full" v-else />
-                  <a
-                    class="text-indigo-600 hover:text-indigo-800 underline"
-                    tabindex="-1"
+                  <button
+                    @click="router.push({ path: '/users/show/'+user.id })"
+                    class="a-link"
                   >
                     {{ user.name }}
-                  </a>
+                  </button>
                 </div>
               </td>
               <td class="">
@@ -85,11 +88,11 @@
               </td>
               <td class="">
                 <div class="flex items-center space-x-1">
-                  <a
-                    tabindex="-1"
-                  >
-                    <button class="btn btn-success btn-xs">Mostrar</button>
-                  </a>
+
+
+
+                    <button class="btn btn-success btn-xs" @click="router.push({ path: '/users/show/'+user.id })">Mostrar</button>
+
 
                   <a
                     tabindex="-1"
