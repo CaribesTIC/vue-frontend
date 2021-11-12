@@ -24,7 +24,7 @@
 
   const store = useStore();
   const router = useRouter()
-  const route = useRoute()
+  //const route = useRoute()
   const loading = computed(() => store.state.user.loading);
   const error = computed(() => store.state.user.error );
   const users = computed(() => store.state.user.users );
@@ -88,24 +88,9 @@
               </td>
               <td class="">
                 <div class="flex items-center space-x-1">
-
-
-
-                    <button class="btn btn-success btn-xs" @click="router.push({ path: '/users/show/'+user.id })">Mostrar</button>
-
-
-                  <a
-                    tabindex="-1"
-                  >
-                    <button class="btn btn-primary btn-xs">Editar</button>
-                  </a>
-
-                  <button
-                    @click="deleteRow(user.id)"
-                    class="btn btn-danger btn-xs"
-                  >
-                    Eliminar
-                  </button>
+                  <button class="btn btn-success btn-xs" @click="router.push({ path: '/users/show/'+user.id })">Mostrar</button>
+                  <button class="btn btn-success btn-xs" @click="router.push({ path: '/users/edit/'+user.id })">Editar</button>
+                  <button @click="deleteRow(user.id)" class="btn btn-danger btn-xs" >Eliminar</button>
                 </div>
               </td>
             </tr>

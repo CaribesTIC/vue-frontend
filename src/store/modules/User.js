@@ -11,6 +11,7 @@ function setPaginatedUsers(commit, response) {
 }
 
 export const state = {
+  user: {},
   users: [],
   meta: null,
   links: null,
@@ -19,6 +20,9 @@ export const state = {
 };
 
 export const mutations = {
+  SET_USER(state, user) {
+    state.user = user;
+  },
   SET_USERS(state, users) {
     state.users = users;
   },
@@ -37,6 +41,18 @@ export const mutations = {
 };
 
 export const actions = {
+  getUser({ commit }, user_id) {    
+    commit("SET_LOADING", true);
+    UserService.getUser(user_id)
+      .then((response) => {
+        commit("SET_USER", response.data.data);
+      })
+      //.catch((error) => {
+      //  commit("SET_LOADING", false);
+      //  commit("SET_ERROR", getError(error));
+      //})
+      ;
+  },
   getUsers({ commit }, page) {
     commit("SET_LOADING", true);
     UserService.getUsers(page)
@@ -62,6 +78,9 @@ export const actions = {
 };
 
 export const getters = {
+  user: (state) => {
+    return state.user;
+  },
   users: (state) => {
     return state.users;
   },

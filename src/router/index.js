@@ -30,12 +30,17 @@ const routes = [{
     name: "users",
     meta: { middleware: [auth] },
     component: () => import(/* webpackChunkName: "Users" */ "../views/Users/Index"),
-    
   }, {
     path: "/users/show/:id",
     name: "userShow",
     meta: { middleware: [auth] },
     component: () => import(/* webpackChunkName: "userShow" */ "../views/Users/Show"),
+    props: true     
+  }, {
+    path: "/users/edit/:id",
+    name: "userEdit",
+    meta: { middleware: [auth] },
+    component: () => import(/* webpackChunkName: "userEdit" */ "../views/Users/Edit"),
     props: true    
   }, {
     path: "/login",

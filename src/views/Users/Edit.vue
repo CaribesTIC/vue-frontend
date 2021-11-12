@@ -1,33 +1,36 @@
 <script setup>
-  import { onMounted, reactive } from 'vue'
+  import { onMounted, reactive, computed } from 'vue'
   import { useRouter, useRoute } from 'vue-router'
+  import { useStore } from 'vuex';
   import PageHeader from "@/components/PageHeader";
   import UserService from "@/services/UserService";
 
   const router = useRouter()
-  const route = useRoute()
-
+  const store = useStore();
   const props = defineProps({ id: Number })
   const form = reactive({ name: "", email: "" })
 
-  onMounted(() => {
-    if (form.name === "") {
-    UserService.getUser(props.id)
-      .then((response) => {
-        form.name = response.data.data.name;
-        form.email = response.data.data.email;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    }
+  onMounted(async () => {
+    if (props.id != store.state.user.user.id) 
+      await store.dispatch("user/getUser", props.id)
+  })
+
+
+  form.name = computed({
+    get: () => store.state.user.user.name,
+    //set: value => store.commit('updateMessage', value)
+  })
+
+  form.email = computed({
+    get: () => store.state.user.user.email,
+    //set: value => store.commit('updateMessage', value)
   })
 
 </script>
 
 <template>
   <div>
-    <page-header> Mostrar usuario </page-header>
+    <page-header> Editar usuario </page-header>
     <div class="flex space-x-2">
 
       <button class="btn btn-primary btn-xs" @click="router.push({ path: '/users' })">Ver todos</button>
