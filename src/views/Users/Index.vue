@@ -89,7 +89,7 @@
               <td class="">
                 <div class="flex items-center space-x-1">
                   <button class="btn btn-success btn-xs" @click="router.push({ path: '/users/show/'+user.id })">Mostrar</button>
-                  <button class="btn btn-success btn-xs" @click="router.push({ path: '/users/edit/'+user.id })">Editar</button>
+                  <button class="btn btn-primary btn-xs" @click="router.push({ path: '/users/edit/'+user.id })">Editar</button>
                   <button @click="deleteRow(user.id)" class="btn btn-danger btn-xs" >Eliminar</button>
                 </div>
               </td>
