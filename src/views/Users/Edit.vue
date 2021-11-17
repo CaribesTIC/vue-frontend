@@ -3,12 +3,16 @@
   import { useRouter } from 'vue-router'
   import FlashMessage from "@/components/FlashMessage";
   import PageHeader from "@/components/PageHeader";
+  import LoadingButton from "@/components/LoadingButton";
   import useUser from "./useUser";
 
   const router = useRouter()
-  const props = defineProps({ id: Number })
-  const { form, loading, userGet } = useUser();
-  onMounted(async () => await userGet(props.id))
+  const props = defineProps({ id: String })
+  const { form, loading, userGet, helperTables, roles } = useUser();
+  onMounted(async () => {
+    await userGet(props.id);
+    await helperTables();
+  });
 </script>
 
 <template>
@@ -54,7 +58,7 @@
               <!-- role -->
               <label class="block">
                 <span class="text-gray-700">Rol</span>
-                <select v-model="form.role_id" class="">
+                <select v-model="form.role_id" class="p-2">
                   <option v-for="role in roles" :value="role.id" :key="role">
                     {{ role.name }}
                   </option>
@@ -63,7 +67,7 @@
             </div>
             <div class="mt-4 px-2 border-gray-100 flex justify-end space-x-2">
               <loading-button
-                :loading="sending"
+                :loading="loading"
                 class="btn btn-primary ml-auto"
                 type="submit"
               >

@@ -10,4 +10,7 @@ export default {
   paginateUsers(link) {
     return API.apiClient.get(link);
   },
+  helperTablesGet() {
+     return API.apiClient.get(`/user/helperTables`);
+  }
 };

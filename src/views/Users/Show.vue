@@ -6,7 +6,7 @@
   import useUser from "./useUser";
 
   const router = useRouter()
-  const props = defineProps({ id: Number })
+  const props = defineProps({ id: String })
   const { form, loading, userGet } = useUser();
   onMounted(async () => await userGet(props.id))
 </script>

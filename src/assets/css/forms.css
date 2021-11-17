@@ -14,7 +14,7 @@ input[type="week"],
 input[multiple],
 textarea,
 select {
-    @apply block w-full rounded-sm border border-gray-300 shadow-sm p-1;
+    @apply block w-full rounded-sm border border-gray-300 shadow-sm p-2;
 }
 .form-error {
     @apply text-red-500 text-sm mt-1;

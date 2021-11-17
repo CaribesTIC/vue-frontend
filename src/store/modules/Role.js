@@ -1,33 +1,35 @@
 import { getError } from "@/utils/helpers";
-import UserService from "@/services/UserService";
+import RoleService from "@/services/RoleService";
 
 export const namespaced = true;
 
-function setPaginatedUsers(commit, response) {
-  commit("SET_USERS", response.data.data);
+function setPaginatedRoles(commit, response) {
+  commit("SET_ROLES", response.data.data);
   commit("SET_META", response.data.meta);
   commit("SET_LINKS", response.data.links);
   commit("SET_LOADING", false);
 }
 
 export const state = {
-  user: {},
-  users: [],  
+  role: {},
+  roles: [],
+  //help: [],
   meta: null,
   links: null,
   loading: false,
   error: null,
-  helperTables : true,
-  roles: []
 };
 
 export const mutations = {
-  SET_USER(state, user) {
-    state.user = user;
+  SET_ROLE(state, role) {
+    state.role = role;
   },
-  SET_USERS(state, users) {
-    state.users = users;
+  SET_ROLES(state, roles) {
+    state.roles = roles;    
   },
+  //SET_HELP(state, roles) {    
+  //  state.help = roles;
+  //},
   SET_META(state, meta) {
     state.meta = meta;
   },
@@ -40,20 +42,14 @@ export const mutations = {
   SET_ERROR(state, error) {
     state.error = error;
   },
-  SET_ROLES(state, roles) {
-    state.roles = roles;
-  },
-  SET_HELPER_TABLES(state) {
-    state.helperTables = false;
-  },
 };
 
 export const actions = {
-  getUser({ commit }, user_id) {    
+  getRole({ commit }, role_id) {    
     commit("SET_LOADING", true);
-    UserService.getUser(user_id)
+    RoleService.getRole(role_id)
       .then((response) => {
-        commit("SET_USER", response.data.data);
+        commit("SET_ROLE", response.data.data);
         commit("SET_LOADING", false);
       })
       .catch((error) => {
@@ -62,49 +58,42 @@ export const actions = {
       })
       ;
   },
-  getUsers({ commit }, page) {
+  /*getRoles({ commit }, page) {
     commit("SET_LOADING", true);
-    UserService.getUsers(page)
+    RoleService.getRoles(page)
       .then((response) => {
-        setPaginatedUsers(commit, response);
+        setPaginatedRoles(commit, response);
+        commit("SET_HELP", response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        commit("SET_LOADING", false);
+        commit("SET_ERROR", getError(error));
+      });
+  },*/
+  paginateRoles({ commit }, link) {
+    commit("SET_LOADING", true);
+    RoleService.paginateRoles(link)
+      .then((response) => {
+        setPaginatedRoles(commit, response);
       })
       .catch((error) => {
         commit("SET_LOADING", false);
         commit("SET_ERROR", getError(error));
       });
   },
-  paginateUsers({ commit }, link) {
-    commit("SET_LOADING", true);
-    UserService.paginateUsers(link)
-      .then((response) => {
-        setPaginatedUsers(commit, response);
-      })
-      .catch((error) => {
-        commit("SET_LOADING", false);
-        commit("SET_ERROR", getError(error));
-      });
-  },
-  helperTables({ commit }) {
-    commit("SET_LOADING", true);
-    UserService.helperTablesGet()
-      .then((response) => {        
-        commit("SET_ROLES", response.data.roles);
-        commit("SET_HELPER_TABLES");        
-      })
-      .catch((error) => {
-        commit("SET_LOADING", false);
-        commit("SET_ERROR", getError(error));
-      });
-  }
 };
 
 export const getters = {
-  user: (state) => {
-    return state.user;
+  role: (state) => {
+    return state.role;
   },
-  users: (state) => {
-    return state.users;
+  roles: (state) => {
+    return state.roles;
   },
+  /*help: (state) => {
+    return state.help;
+  },*/
   meta: (state) => {
     return state.meta;
   },
@@ -116,8 +105,5 @@ export const getters = {
   },
   error: (state) => {
     return state.error;
-  },
-  roles: (state) => {
-    return state.roles;
   },
 };
