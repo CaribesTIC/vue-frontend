@@ -8,11 +8,13 @@
 
   const router = useRouter()
   const props = defineProps({ id: String })
-  const { form, loading, userGet, helperTables, roles } = useUser();
+  const { form, loading, userGet, helperTables, roles, userUpdate } = useUser();
+
   onMounted(async () => {
     await userGet(props.id);
     await helperTables();
   });
+
 </script>
 
 <template>
@@ -29,7 +31,7 @@
           <button class="btn btn-primary mb-4" @click="router.push({ path: '/users' })">Ver todos</button>
         </div>
         <div class="panel mt-6">
-          <form @submit.prevent="submit" class="p-4">
+          <form @submit.prevent="userUpdate(props.id, form)" class="p-4">
             <div class="grid lg:grid-cols-2 gap-4">
               <!-- name -->
               <label class="block">

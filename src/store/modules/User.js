@@ -59,8 +59,7 @@ export const actions = {
       .catch((error) => {
         commit("SET_LOADING", false);
         commit("SET_ERROR", getError(error));
-      })
-      ;
+      });
   },
   getUsers({ commit }, page) {
     commit("SET_LOADING", true);
@@ -95,7 +94,19 @@ export const actions = {
         commit("SET_LOADING", false);
         commit("SET_ERROR", getError(error));
       });
-  }
+  },
+  updateUser({ commit }, { userId, form }) {
+    //commit("SET_LOADING", true);
+    UserService.updateUser(userId, form)
+      .then((response) => {
+        commit("SET_USER", form);
+       // commit("SET_LOADING", false);
+      })
+      .catch((error) => {
+        commit("SET_LOADING", false);
+        commit("SET_ERROR", getError(error));
+      });  }
+
 };
 
 export const getters = {

@@ -39,6 +39,9 @@ export default () => {
     helperTables: async () => {    
       if (store.state.user.helperTables) 
         await store.dispatch("user/helperTables")
+    },
+    userUpdate: async (userId, form) => {
+      await store.dispatch("user/updateUser", { userId, form });
     }
   };
   

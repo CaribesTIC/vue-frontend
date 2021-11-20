@@ -12,5 +12,8 @@ export default {
   },
   helperTablesGet() {
      return API.apiClient.get(`/user/helperTables`);
+  },
+  updateUser(userId, form) {
+    return API.apiClient.post(`/users/${userId}`, form);
   }
 };
