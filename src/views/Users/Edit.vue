@@ -1,14 +1,21 @@
 <script setup>
   import { onMounted, computed } from 'vue'
-  import { useRouter } from 'vue-router'
+  import BaseBtn from "@/components/BaseBtn";
   import FlashMessage from "@/components/FlashMessage";
   import PageHeader from "@/components/PageHeader";
-  import LoadingButton from "@/components/LoadingButton";
   import useUser from "./useUser";
 
-  const router = useRouter()
   const props = defineProps({ id: String })
-  const { form, loading, userGet, helperTables, roles, userUpdate } = useUser();
+  const {
+    form,
+    loading,
+    sending,
+    userGet,
+    helperTables,
+    roles,
+    router,
+    userUpdate
+  } = useUser();
 
   onMounted(async () => {
     await userGet(props.id);
@@ -67,15 +74,15 @@
                 </select>
               </label>
             </div>
+
             <div class="mt-4 px-2 border-gray-100 flex justify-end space-x-2">
-              <loading-button
-                :loading="loading"
-                class="btn btn-primary ml-auto"
+              <BaseBtn
                 type="submit"
-              >
-                Guardar
-              </loading-button>
+                :text="sending ? 'Guardando...' : 'Guardar'"
+                :isDisabled='sending'
+              />
             </div>
+
           </form>
         </div>
       </div>

@@ -16,6 +16,7 @@ export const state = {
   meta: null,
   links: null,
   loading: false,
+  sending: false,
   error: null,
   helperTables : true,
   roles: []
@@ -36,6 +37,9 @@ export const mutations = {
   },
   SET_LOADING(state, loading) {
     state.loading = loading;
+  },
+  SET_SENDING(state, sending) {
+    state.sending = sending;
   },
   SET_ERROR(state, error) {
     state.error = error;
@@ -95,18 +99,18 @@ export const actions = {
         commit("SET_ERROR", getError(error));
       });
   },
-  updateUser({ commit }, { userId, form }) {
-    //commit("SET_LOADING", true);
-    UserService.updateUser(userId, form)
+  async updateUser({ commit }, { userId, form }) {
+    commit("SET_SENDING", true);
+    return UserService.updateUser(userId, form)
       .then((response) => {
         commit("SET_USER", form);
-       // commit("SET_LOADING", false);
+        commit("SET_SENDING", false);
       })
       .catch((error) => {
-        commit("SET_LOADING", false);
+        commit("SET_SENDING", false);
         commit("SET_ERROR", getError(error));
-      });  }
-
+      });
+    }
 };
 
 export const getters = {

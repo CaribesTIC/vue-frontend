@@ -1,11 +1,18 @@
 import { reactive, computed } from 'vue'
 import { useStore } from 'vuex';
+import { useRouter } from 'vue-router'
 
 export default () => {  
    
   const store = useStore();
+  const router = useRouter();
 
-  const form = reactive({ name: "", email: "", role_id: "" });
+  const form = reactive({
+    name: "",
+    email: "",
+    password: "",
+    role_id: ""
+  });
 
   const storeCommitSetUser = (field, value) => {
       const user = { ...form };
@@ -22,6 +29,11 @@ export default () => {
     get: () => store.state.user.user.email,
     set: value => storeCommitSetUser("email", value)
   });
+
+  form.password = computed({
+    get: () => store.state.user.user.password,
+    set: value => storeCommitSetUser("password", value)
+  });
   
   form.role_id = computed({
     get: () => store.state.user.user.role_id,
@@ -30,7 +42,9 @@ export default () => {
 
   return {
     form,
+    router,
     loading: computed(() => store.state.user.loading),
+    sending: computed(() => store.state.user.sending),
     roles: computed(() => store.getters["user/roles"]),
     userGet: async id => {    
       if (id != store.state.user.user.id) 
@@ -42,6 +56,7 @@ export default () => {
     },
     userUpdate: async (userId, form) => {
       await store.dispatch("user/updateUser", { userId, form });
+      router.push({ path: '/users' });
     }
   };
   
