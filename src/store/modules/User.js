@@ -105,9 +105,11 @@ export const actions = {
       .then((response) => {
         commit("SET_USER", form);
         commit("SET_SENDING", false);
+        commit("SET_FLASH_MESSAGE_SUCCESS", { msg: response.data.message } , { root: true });
       })
       .catch((error) => {
         commit("SET_SENDING", false);
+        commit("SET_FLASH_MESSAGE_ERROR", { msg: error.message } , { root: true });
         commit("SET_ERROR", getError(error));
       });
     }

@@ -17,6 +17,7 @@
   import { useStore } from 'vuex';
   import MailIcon from "@/components/icons/MailIcon";
   import FlashMessage from "@/components/FlashMessage";
+  import FlashMessages from "@/components/FlashMessages";
   import AvatarIcon from "@/components/icons/AvatarIcon";
   import BasePagination from "@/components/BasePagination";
   import PageHeader from "@/components/PageHeader";
@@ -42,6 +43,7 @@
         key="loading"
       />
       <div v-else class="table-data__wrapper">
+      <FlashMessages />
         <table class="table-data">
           <thead>
             <tr class="">
@@ -101,9 +103,9 @@
         </table>
       </div>
     </transition>
-    <transition name="fade">
+    <!--transition name="fade">
       <FlashMessage :error="error" v-if="error" key="error" />
-    </transition>
+    </transition-->
     <transition name="fade">
       <BasePagination
         class="bg-white p-5"

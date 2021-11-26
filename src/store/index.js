@@ -15,6 +15,24 @@ export default createStore({
     message,
     shopcart//,
     //role
+  },
+  state: {
+    flashMessage: {
+      success: null,
+      error: null
+    }
+  },
+  mutations: {
+    FLASH_MESSAGE_RESET(state) {
+      state.flashMessage.success = null;
+      state.flashMessage.error = null;
+    },
+    SET_FLASH_MESSAGE_SUCCESS(state, payload) {
+      state.flashMessage.success = payload.msg;
+    },
+    SET_FLASH_MESSAGE_ERROR(state, payload) {
+      state.flashMessage.error = payload.msg;
+    }
   }
 });
 
