@@ -1,8 +1,35 @@
+<script setup>
+import { ref, onMounted, computed } from 'vue';
+import { useStore } from 'vuex';
+import FlashMessagesIcon from "@/components/FlashMessagesIcon";
+
+const store = useStore();  
+const show = ref(true);
+
+const flashMessage = computed(
+  () => store.state.flashMessage
+);
+
+const close = () => {
+  show.value = false;
+  store.commit('FLASH_MESSAGE_RESET'); 
+  show.value = true;
+};
+
+onMounted(() => {
+  if (flashMessage.value) {
+    setTimeout(() => {
+      close();
+    }, 9000);
+  }
+});
+</script>
+
 <template>
   <div class="bg-gray-200">
     <div
       v-if="$store.state.flashMessage.success && show"
-      class="mb-0 flex items-center justify-between bg-green-500 rounded max-w-full my-1 m-10"
+      class="flex items-center justify-between bg-green-500 rounded max-w-full m-1"
     >
       <div class="flex items-center">
         <FlashMessagesIcon name="success" />
@@ -17,7 +44,7 @@
 
     <div
       v-else-if="$store.state.flashMessage.error && show"
-      class="mb-8 flex items-center justify-between bg-red-500 rounded max-w-full my-1 m-10"
+      class="flex items-center justify-between bg-green-500 rounded max-w-full m-1"
     >
       <div class="flex items-center">
         <FlashMessagesIcon name="error" />
@@ -32,27 +59,4 @@
   </div>
 </template>
 
-<script>
-import FlashMessagesIcon from "@/components/FlashMessagesIcon";
 
-export default {
-  components: { FlashMessagesIcon },
-  data() {
-    return {
-      show: true
-    };
-  },
-  computed: {
-    flashMessage () {
-      return this.$store.state.flashMessage
-    }
-  },
-  methods: {
-    close(){
-      this.show = false;
-      this.$store.commit('FLASH_MESSAGE_RESET'); 
-      this.show = true;
-    }
-  }
-};
-</script>

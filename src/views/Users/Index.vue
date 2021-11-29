@@ -35,7 +35,8 @@
 
 <template>
   <div class="p-0 xl:px-0">
-    <PageHeader>Usuarios</PageHeader>
+   <FlashMessages />
+   <PageHeader>Usuarios</PageHeader>
     <transition name="fade" mode="out-in">
       <FlashMessage
         message="loading..."
@@ -43,7 +44,7 @@
         key="loading"
       />
       <div v-else class="table-data__wrapper">
-      <FlashMessages />
+
         <table class="table-data">
           <thead>
             <tr class="">
