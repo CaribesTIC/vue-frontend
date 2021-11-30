@@ -53,6 +53,13 @@ export const mutations = {
 };
 
 export const actions = {
+  cleanUser({ commit }, form) {    
+    return new Promise((resolve) => {
+      setTimeout(function(){      
+        resolve(commit("SET_USER", form));                
+      }, 200);
+    });
+  },
   getUser({ commit }, user_id) {    
     commit("SET_LOADING", true);
     UserService.getUser(user_id)

@@ -3,7 +3,7 @@
   import BaseBtn from "@/components/BaseBtn";
   import FlashMessage from "@/components/FlashMessage";
   import PageHeader from "@/components/PageHeader";
-  import useUser from "./useUser1";
+  import useUser from "./useUser";
   
   const {
     form,
@@ -11,10 +11,15 @@
     sending,    
     router,
     userClean,
+    helperTables,
+    roles,
     storeCommitSetUser
   } = useUser();
   
-  onMounted(() => userClean());
+  onMounted(async () => {
+    await userClean();
+    await helperTables();
+  });
 
 </script>
 
@@ -22,13 +27,13 @@
   <div>
     <page-header>Usuarios / Crear</page-header>
     <transition name="fade" mode="out-in">
-      <!--FlashMessage
+      <FlashMessage
         message="loading..."
-        v-if="loading && !form.length"
+        v-if="loading"
         key="loading"
       />
-      <div v-else class="panel mt-6 p-4"-->  
-      <div class="panel mt-6 p-4">    
+      <div v-else class="panel mt-6 p-4">  
+          
         <div  class="flex space-x-2">
           <button class="btn btn-primary mb-4" @click="router.push({ path: '/users' })">Ver todos</button>
         </div>
@@ -62,7 +67,7 @@
               <!-- role -->
               <label class="block">
                 <span class="text-gray-700">Rol</span>
-                <select v-model="form.role_id" class="p-2">
+                <select v-model="form.role_id" class="p-2">                
                   <option v-for="role in roles" :value="role.id" :key="role">
                     {{ role.name }}
                   </option>

@@ -46,6 +46,14 @@ export default () => {
     loading: computed(() => store.state.user.loading),
     sending: computed(() => store.state.user.sending),
     roles: computed(() => store.getters["user/roles"]),
+    userClean: async () => {
+      await store.dispatch("user/cleanUser", {
+        name: "",
+        email: "",
+        password: "",
+        role_id: ""
+      });            
+    },
     userGet: async id => {    
       if (id != store.state.user.user.id) 
         await store.dispatch("user/getUser", id)
