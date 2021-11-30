@@ -45,6 +45,10 @@
       />
       <div v-else class="table-data__wrapper">
 
+    <div class="mb-3">
+      <button class="btn btn-primary" @click="router.push({ path: '/users/create' })">Crear</button>
+    </div>
+    
         <table class="table-data">
           <thead>
             <tr class="">

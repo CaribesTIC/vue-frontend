@@ -31,11 +31,17 @@ const routes = [{
     meta: { middleware: [auth] },
     component: () => import(/* webpackChunkName: "Users" */ "../views/Users/Index"),
   }, {
+    path: "/users/create",
+    name: "userCreate",
+    meta: { middleware: [auth] },
+    component: () => import(/* webpackChunkName: "userCreate" */ "../views/Users/Create"),
+    props: true
+  }, {
     path: "/users/show/:id",
     name: "userShow",
     meta: { middleware: [auth] },
     component: () => import(/* webpackChunkName: "userShow" */ "../views/Users/Show"),
-    props: true     
+    props: true
   }, {
     path: "/users/edit/:id",
     name: "userEdit",
