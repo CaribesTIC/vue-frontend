@@ -53,12 +53,11 @@ export const mutations = {
 };
 
 export const actions = {
-  cleanUser({ commit }, form) {    
-    return new Promise((resolve) => {
-      setTimeout(function(){      
-        resolve(commit("SET_USER", form));                
-      }, 200);
-    });
+  cleanUser({ commit }, form) { 
+    UserService.cleanUser(form)
+      .then( response => {
+        commit("SET_USER", response); 
+      });
   },
   getUser({ commit }, user_id) {    
     commit("SET_LOADING", true);
@@ -95,14 +94,26 @@ export const actions = {
       });
   },
   helperTables({ commit }) {
-    commit("SET_LOADING", true);
     UserService.helperTablesGet()
       .then((response) => {        
         commit("SET_ROLES", response.data.roles);
         commit("SET_HELPER_TABLES");        
       })
       .catch((error) => {
-        commit("SET_LOADING", false);
+        commit("SET_ERROR", getError(error));
+      });
+  },
+  async insertUser({ commit }, { form }) {
+    commit("SET_SENDING", true);
+    return UserService.insertUser(form)
+      .then((response) => {
+        commit("SET_USER", form);
+        commit("SET_SENDING", false);
+        commit("SET_FLASH_MESSAGE_SUCCESS", { msg: response.data.message } , { root: true });
+      })
+      .catch((error) => {
+        commit("SET_SENDING", false);
+        commit("SET_FLASH_MESSAGE_ERROR", { msg: error.message } , { root: true });
         commit("SET_ERROR", getError(error));
       });
   },
@@ -119,7 +130,7 @@ export const actions = {
         commit("SET_FLASH_MESSAGE_ERROR", { msg: error.message } , { root: true });
         commit("SET_ERROR", getError(error));
       });
-    }
+  }
 };
 
 export const getters = {

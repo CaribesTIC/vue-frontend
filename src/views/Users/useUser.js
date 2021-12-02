@@ -65,6 +65,10 @@ export default () => {
     userUpdate: async (userId, form) => {
       await store.dispatch("user/updateUser", { userId, form });
       router.push({ path: '/users' });
+    },
+    userInsert: async (form) => {
+      await store.dispatch("user/insertUser", { form });
+      router.push({ path: '/users' });
     }
   };
   

@@ -13,7 +13,8 @@
     userClean,
     helperTables,
     roles,
-    storeCommitSetUser
+    storeCommitSetUser,
+    userInsert
   } = useUser();
   
   onMounted(async () => {
@@ -38,7 +39,7 @@
           <button class="btn btn-primary mb-4" @click="router.push({ path: '/users' })">Ver todos</button>
         </div>
         <div class="panel mt-6">
-          <form @submit.prevent="userUpdate(props.id, form)" class="p-4">
+          <form @submit.prevent="userInsert(form)" class="p-4">
             <div class="grid lg:grid-cols-2 gap-4">
               <!-- name -->
               <label class="block">

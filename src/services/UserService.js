@@ -1,6 +1,13 @@
 import * as API from "@/services/API";
 
 export default {
+  cleanUser(form) {
+    return new Promise(resolve => {
+      setTimeout(function() {      
+        resolve(form); 
+      }, 100);
+    });
+  },
   getUser(userId) {
     return API.apiClient.get(`/users/${userId}`);
   },
@@ -12,6 +19,9 @@ export default {
   },
   helperTablesGet() {
      return API.apiClient.get(`/user/helperTables`);
+  },
+  insertUser(form) {
+    return API.apiClient.post(`/users`, form);
   },
   updateUser(userId, form) {
     return API.apiClient.post(`/users/${userId}`, form);
