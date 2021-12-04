@@ -1,8 +1,14 @@
 <template>
-  <button
+  <!--button
     :disabled="isDisabled"
     :type="type"
     v-on="$listeners"
+    class="btn"
+    :class="isDisabled ? 'btn-default' : 'btn-primary'"
+  -->
+  <button
+    :disabled="isDisabled"
+    :type="type"
     class="btn"
     :class="isDisabled ? 'btn-default' : 'btn-primary'"
   >

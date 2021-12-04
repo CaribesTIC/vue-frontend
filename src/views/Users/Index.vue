@@ -25,7 +25,7 @@
 
   const store = useStore();
   const router = useRouter()
-  //const route = useRoute()
+  const isAdmin = computed(() => store.getters['auth/isAdmin'] );
   const loading = computed(() => store.state.user.loading);
   const error = computed(() => store.state.user.error );
   const users = computed(() => store.state.user.users );
@@ -45,7 +45,7 @@
       />
       <div v-else class="table-data__wrapper">
 
-    <div class="mb-3">
+    <div class="mb-3" v-if="isAdmin">
       <button class="btn btn-primary" @click="router.push({ path: '/users/create' })">Crear</button>
     </div>
     

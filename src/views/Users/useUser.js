@@ -75,7 +75,7 @@ export default () => {
     },
     userInsert: async (form) => {
       await store.dispatch("user/insertUser", { form });
-      if (store.state.message.success) {
+      if (store.state.flashMessage.success) {
         router.push({ path: '/users' });
       }
     }

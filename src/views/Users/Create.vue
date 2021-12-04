@@ -55,7 +55,7 @@
               <label class="block">
                 <span class="text-gray-700">Correo</span>
                 <input v-model="form.email" type="email" class=""/>
-                <div v-if="errors" class="form-error">
+                <div v-if="errors.errors.email" class="form-error">
                   {{ errors.errors.email[0] }}
                 </div>
               </label>
@@ -63,7 +63,7 @@
               <label class="block">
                 <span class="text-gray-700">Password</span>
                 <input v-model="form.password" type="password" class="" autocomplete="off"/>
-                <div v-if="errors" class="form-error">
+                <div v-if="errors.errors.password" class="form-error">
                   {{ errors.errors.password[0] }}
                 </div>
               </label>
@@ -75,7 +75,7 @@
                     {{ role.name }}
                   </option>
                 </select>
-                <div v-if="errors" class="form-error">
+                <div v-if="errors.errors.role_id" class="form-error">
                   {{ errors.errors.role_id[0] }}
                 </div>
               </label>

@@ -79,6 +79,7 @@ export const actions = {
       })
       .catch((error) => {
         commit("SET_LOADING", false);
+        commit("SET_FLASH_MESSAGE_ERROR", { msg: error.response.data } , { root: true });
         commit("SET_ERROR", getError(error));
       });
   },

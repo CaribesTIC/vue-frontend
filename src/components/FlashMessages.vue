@@ -51,7 +51,6 @@ onMounted(() => {
         <div v-if="$store.state.flashMessage.error.message" class="py-4 text-white text-base font-medium">
           {{ $store.state.flashMessage.error.message }}
         </div>
-
         <!--div v-if="$store.state.flashMessage.error.errors" class="py-4 text-white text-base font-medium">
           <ul>
             <li v-for="(error, index) in $store.state.flashMessage.error.errors" :key="index">
@@ -59,8 +58,6 @@ onMounted(() => {
             </li>
           </ul>
         </div-->
-
-
       </div>
       <button type="button" class="group mr-2 p-2" @click="close">
         <FlashMessagesIcon name="close-x" />
