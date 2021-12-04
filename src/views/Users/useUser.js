@@ -45,6 +45,13 @@ export default () => {
     router,
     loading: computed(() => store.state.user.loading),
     sending: computed(() => store.state.user.sending),
+    errors: computed(() => 
+      Object.assign({
+        errors: {
+          name: [], email: [], password: [], role_id: []
+        }
+      }, store.state.flashMessage.error)
+    ),
     roles: computed(() => store.getters["user/roles"]),
     userClean: async () => {
       await store.dispatch("user/cleanUser", {
@@ -68,7 +75,9 @@ export default () => {
     },
     userInsert: async (form) => {
       await store.dispatch("user/insertUser", { form });
-      router.push({ path: '/users' });
+      if (store.state.message.success) {
+        router.push({ path: '/users' });
+      }
     }
   };
   

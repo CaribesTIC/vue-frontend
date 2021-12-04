@@ -1,6 +1,7 @@
 <script setup>
   import { onMounted, computed, nextTick } from 'vue'
   import BaseBtn from "@/components/BaseBtn";
+  import FlashMessages from "@/components/FlashMessages";
   import FlashMessage from "@/components/FlashMessage";
   import PageHeader from "@/components/PageHeader";
   import useUser from "./useUser";
@@ -9,6 +10,7 @@
     form,
     loading,
     sending,    
+    errors,    
     router,
     userClean,
     helperTables,
@@ -26,6 +28,7 @@
 
 <template>
   <div>
+    <FlashMessages /> 
     <page-header>Usuarios / Crear</page-header>
     <transition name="fade" mode="out-in">
       <FlashMessage
@@ -34,7 +37,6 @@
         key="loading"
       />
       <div v-else class="panel mt-6 p-4">  
-          
         <div  class="flex space-x-2">
           <button class="btn btn-primary mb-4" @click="router.push({ path: '/users' })">Ver todos</button>
         </div>
@@ -45,25 +47,25 @@
               <label class="block">
                 <span class="text-gray-700">Nombre</span>
                 <input v-model="form.name" type="text" class="" />
-                <!--div v-if="errors.name" class="form-error">
-                  {{ errors.name }}
-                </div-->
+                <div v-if="errors.errors.name" class="form-error">
+                  {{ errors.errors.name[0] }}
+                </div>
               </label>
               <!-- email -->
               <label class="block">
                 <span class="text-gray-700">Correo</span>
                 <input v-model="form.email" type="email" class=""/>
-                <!--div v-if="errors.email" class="form-error">
-                  {{ errors.email }}
-                </div-->
+                <div v-if="errors" class="form-error">
+                  {{ errors.errors.email[0] }}
+                </div>
               </label>
               <!-- password -->
               <label class="block">
                 <span class="text-gray-700">Password</span>
                 <input v-model="form.password" type="password" class="" autocomplete="off"/>
-                <!--div v-if="errors.password" class="form-error">
-                  {{ errors.password }}
-                </div-->
+                <div v-if="errors" class="form-error">
+                  {{ errors.errors.password[0] }}
+                </div>
               </label>
               <!-- role -->
               <label class="block">
@@ -73,6 +75,9 @@
                     {{ role.name }}
                   </option>
                 </select>
+                <div v-if="errors" class="form-error">
+                  {{ errors.errors.role_id[0] }}
+                </div>
               </label>
             </div>
 

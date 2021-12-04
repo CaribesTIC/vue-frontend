@@ -113,7 +113,7 @@ export const actions = {
       })
       .catch((error) => {
         commit("SET_SENDING", false);
-        commit("SET_FLASH_MESSAGE_ERROR", { msg: error.message } , { root: true });
+        commit("SET_FLASH_MESSAGE_ERROR", { msg: error.response.data } , { root: true });
         commit("SET_ERROR", getError(error));
       });
   },
