@@ -1,29 +1,40 @@
 <script setup>
-  import { onMounted, computed, nextTick } from 'vue'
+  import { onMounted, computed } from 'vue'
+  import { useStore } from 'vuex';
+  import { useRouter } from 'vue-router'
   import BaseBtn from "@/components/BaseBtn";
   import FlashMessages from "@/components/FlashMessages";
   import FlashMessage from "@/components/FlashMessage";
   import PageHeader from "@/components/PageHeader";
   import useUser from "./useUser";
   
+  const store = useStore();
+  const router = useRouter();
+
   const {
+    errors,    
     form,
+    helperTables,
     loading,
     sending,    
-    errors,    
-    router,
-    userClean,
-    helperTables,
-    roles,
-    storeCommitSetUser,
-    userInsert
+    roles
   } = useUser();
   
   onMounted(async () => {
-    await userClean();
+    await store.dispatch("user/cleanUser", {
+      name: "",
+      email: "",
+      password: "",
+      role_id: ""
+    });  
     await helperTables();
   });
 
+  const userInsert = async form => {
+    await store.dispatch("user/insertUser", { form });
+    if (store.state.flashMessage.success) 
+      router.push({ path: '/users' });
+  };
 </script>
 
 <template>
@@ -95,3 +106,4 @@
     </transition>
   </div>
 </template>
+
