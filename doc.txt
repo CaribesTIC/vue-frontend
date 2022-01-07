@@ -1,0 +1,6 @@
+https://github.com/vitejs/vite/issues/745
+https://vueschool.io/articles/vuejs-tutorials/how-to-migrate-from-vue-cli-to-vite/
+https://www.programmerall.com/article/61912244865/
+https://levelup.gitconnected.com/set-up-a-vue-app-running-on-vite-e816247a24e2
+https://vueschool.io/lessons/installing-and-setting-up-vue-router-with-vite-vite-only
+https://vueschool.io/lessons/creating-the-project-with-vite-vite-only
