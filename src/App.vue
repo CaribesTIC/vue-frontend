@@ -1,13 +1,3 @@
-<template>
-  <component :is="layout">
-    <router-view v-slot="{Component}">
-      <transition name="fade" mode="out-in">
-        <component :is="Component" :key="$route.paht"></component>
-      </transition>
-    </router-view>
-  </component>
-</template>
-
 <script>
 import { defineComponent, computed } from "vue";
 import { useRouter } from "vue-router";
@@ -28,6 +18,16 @@ export default defineComponent({
   },
 });
 </script>
+
+<template>
+  <component :is="layout">
+    <router-view v-slot="{Component}">
+      <transition name="fade" mode="out-in">
+        <component :is="Component" :key="$route.paht"></component>
+      </transition>
+    </router-view>
+  </component>
+</template>
 
 <style lang="css" scoped>
   .fade-enter-active,
