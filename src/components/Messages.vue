@@ -47,9 +47,9 @@
 
 <script>
 import { mapGetters } from "vuex";
-import FlashMessage from "@/components/FlashMessage";
-import AvatarIcon from "@/components/icons/AvatarIcon";
-import BasePagination from "@/components/BasePagination";
+import FlashMessage from "@/components/FlashMessage.vue";
+import AvatarIcon from "@/components/icons/AvatarIcon.vue";
+import BasePagination from "@/components/BasePagination.vue";
 
 export default {
   name: "Messages",

@@ -116,9 +116,9 @@
 import { defineComponent, ref, computed, onMounted } from "vue";
 import { useStore } from "vuex";
 import { useSidebar } from "../hooks/useSidebar.js";
-import LoginIcon from "@/components/icons/LoginIcon";
-import HomeIcon from "@/components/icons/HomeIcon";
-import Logout from "@/components/Logout";
+import LoginIcon from "@/components/icons/LoginIcon.vue";
+import HomeIcon from "@/components/icons/HomeIcon.vue";
+import Logout from "@/components/Logout.vue";
 
 export default defineComponent({
   name: "Header",

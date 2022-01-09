@@ -15,10 +15,10 @@
 </template>
 
 <script>
-import { getError } from "@/utils/helpers";
-import BaseBtn from "@/components/BaseBtn";
-import BaseInput from "@/components/BaseInput";
-import FlashMessage from "@/components/FlashMessage";
+import { getError } from "@/utils/helpers.js";
+import BaseBtn from "@/components/BaseBtn.vue";
+import BaseInput from "@/components/BaseInput.vue";
+import FlashMessage from "@/components/FlashMessage.vue";
 
 export default {
   name: "MessageForm",

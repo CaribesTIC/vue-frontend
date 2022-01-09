@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import { useStore } from 'vuex';
-import FlashMessagesIcon from "@/components/FlashMessagesIcon";
+import FlashMessagesIcon from "@/components/FlashMessagesIcon.vue";
 
 const store = useStore();  
 const show = ref(true);

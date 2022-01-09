@@ -2,8 +2,7 @@ import axios from "axios";
 import store from "@/store";
 
 export const authClient = axios.create({
-  baseURL: process.env.VUE_APP_API_URL,
-  //baseURL: "http://backend.entrepreneur.com",
+  baseURL: process.env.VUE_APP_API_URL,  
   withCredentials: true, // required to handle the CSRF token
 });
 

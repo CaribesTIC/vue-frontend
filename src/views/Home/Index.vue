@@ -1,36 +1,33 @@
-<template>
-  <div class="container px-4 mx-auto align-middle mt-20">
-    <div class="md:flex md:justify-center">
-      <div class="md:w-10/12 xl:w-8/12 text-center">
-        <h1 class="text-3xl md:text-4xl mb-4">Home :)</h1>
-        <div class="mt-6">
-          <a
-              class="bg-indigo-600 border-2 border-solid border-indigo-600 hover:bg-indigo-700 hover:border-indigo-700 text-white rounded-full py-3 px-8 transition-colors duration-300 mx-2 mt-4">
-            <router-link to="/about">About</router-link>
-          </a>
-          <button
-              class="border-2 border-solid border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white rounded-full py-3 px-8 transition-colors duration-300 mx-2 mt-4"
-              @click="incrementCount">
-            count is: {{ count }}
-          </button>
-        </div>
-      </div>
+<template>  
+  <div class="relative mt-20 lg:px-4 max-w-md mx-auto sm:px-3">
+    <div class="flex justify-center pt-4 sm:justify-start sm:pt-0 w-1/2 y-1/2 h-auto m-auto">       
+      <IconApple/>
+    </div>      
+    <div class="flex justify-center text-lg mt-10 space-x-5">      
+      <router-link 
+        to="/login" 
+        class="btn btn-primary"
+      >
+        Iniciar sesión
+      </router-link>
+      <router-link
+        to="/register"
+        class="btn btn-default"
+      >
+        Registrarse
+      </router-link>
     </div>
-  </div>
+  </div>  
 </template>
 
-<script setup>
-import {computed} from 'vue'
-import {useStore} from 'vuex'
+<script>
+import IconApple from "./IconApple.vue"
 
-const store = useStore()
-const count = computed(() => {
-      return store.state.count
-    }
-)
-
-function incrementCount (){
-  store.dispatch('incrementAction')
-}
+export default {
+  name: "Home",
+  components : {
+    IconApple
+  }
+};
 
 </script>
