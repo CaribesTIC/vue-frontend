@@ -2,11 +2,11 @@
   import { onMounted, computed } from 'vue'
   import { useStore } from 'vuex';
   import { useRouter } from 'vue-router'
-  import BaseBtn from "@/components/BaseBtn";
-  import FlashMessage from "@/components/FlashMessage";
-  import FlashMessages from "@/components/FlashMessages";
-  import PageHeader from "@/components/PageHeader";
-  import useUser from "./useUser";
+  import BaseBtn from "@/components/BaseBtn.vue";
+  import FlashMessage from "@/components/FlashMessage.vue";
+  import FlashMessages from "@/components/FlashMessages.vue";
+  import PageHeader from "@/components/PageHeader.vue";
+  import useUser from "./useUser.js";
 
   const router = useRouter();
   const store = useStore();
@@ -19,11 +19,11 @@
     loading,
     sending,
     roles,
+    userGet
   } = useUser();
 
   onMounted(async () => {
-    if (props.id != store.state.user.user.id) 
-      await store.dispatch("user/getUser", props.id);
+    await userGet(props.id);
     await helperTables();
   });
 
@@ -103,3 +103,4 @@
     </transition>
   </div>
 </template>
+

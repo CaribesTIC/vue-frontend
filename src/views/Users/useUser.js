@@ -43,6 +43,10 @@ export default () => {
     loading: computed(() => store.state.user.loading),
     sending: computed(() => store.state.user.sending),
     roles: computed(() => store.getters["user/roles"]),
+    userGet: async (propsId) => {
+      if (propsId != store.state.user.user.id) 
+        await store.dispatch("user/getUser", propsId);
+    },
     helperTables: async () => {    
       if (store.state.user.helperTables) 
         await store.dispatch("user/helperTables")

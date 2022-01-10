@@ -2,11 +2,11 @@
   import { onMounted, computed } from 'vue'
   import { useStore } from 'vuex';
   import { useRouter } from 'vue-router'
-  import BaseBtn from "@/components/BaseBtn";
-  import FlashMessages from "@/components/FlashMessages";
-  import FlashMessage from "@/components/FlashMessage";
-  import PageHeader from "@/components/PageHeader";
-  import useUser from "./useUser";
+  import BaseBtn from "@/components/BaseBtn.vue";
+  import FlashMessages from "@/components/FlashMessages.vue";
+  import FlashMessage from "@/components/FlashMessage.vue";
+  import PageHeader from "@/components/PageHeader.vue";
+  import useUser from "./useUser.js";
   
   const store = useStore();
   const router = useRouter();

@@ -97,12 +97,12 @@
 import { onMounted//, ref
   , reactive } from "vue";
 import { onBeforeRouteUpdate, useRouter, useRoute } from 'vue-router' 
-import Pagination from "@/components/Pagination";
-import { useSearch } from "@/hooks/useTableGrid";
-import XserService from "@/services/XserService";
+import Pagination from "@/components/Pagination.vue";
+import XserService from "@/services/XserService.js";
+import { useSearch } from "@/hooks/useTableGrid.js";
 
 export default {
-  name: "Xsers",
+  name: "XsersIndex",
   components: {
     Pagination,
   },

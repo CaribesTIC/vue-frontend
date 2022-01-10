@@ -1,7 +1,7 @@
 <script>
   import store from "@/store/index";
   export default {
-    name: "Users",
+    name: "UsersIndex",
     beforeRouteEnter(to, from, next) {
       const currentPage = parseInt(to.query.page) || 1;
       store.dispatch("user/getUsers", currentPage).then(() => {
@@ -31,6 +31,7 @@
   const users = computed(() => store.state.user.users );
   const meta = computed(() => store.state.user.meta );
   const links = computed(() => store.state.user.links );
+  const deleteRow = id => alert(id);
 </script>
 
 <template>
@@ -95,9 +96,21 @@
               </td>
               <td class="">
                 <div class="flex items-center space-x-1">
-                  <button class="btn btn-success btn-xs" @click="router.push({ path: '/users/show/'+user.id })">Mostrar</button>
-                  <button class="btn btn-primary btn-xs" @click="router.push({ path: '/users/edit/'+user.id })">Editar</button>
-                  <button @click="deleteRow(user.id)" class="btn btn-danger btn-xs" >Eliminar</button>
+                  <button
+                    class="btn btn-success btn-xs"
+                    @click="router.push({ path: '/users/show/'+user.id })">
+                      Mostrar
+                  </button>
+                  <button
+                    class="btn btn-primary btn-xs"
+                    @click="router.push({ path: '/users/edit/'+user.id })">
+                      Editar
+                  </button>
+                  <button
+                    @click="deleteRow(user.id)"
+                    class="btn btn-danger btn-xs" >
+                      Eliminar
+                  </button>
                 </div>
               </td>
             </tr>

@@ -1,11 +1,17 @@
 <script setup>
   import { onMounted, computed } from 'vue'
-  import FlashMessage from "@/components/FlashMessage";
-  import PageHeader from "@/components/PageHeader";
-  import useUser from "./useUser";
+  import { useRouter } from 'vue-router'
+  import FlashMessage from "@/components/FlashMessage.vue";
+  import PageHeader from "@/components/PageHeader.vue";
+  import useUser from "./useUser.js";
 
+  const router = useRouter();
   const props = defineProps({ id: String })
-  const { form, loading, router, userGet } = useUser();
+  const {
+    form,
+    loading,
+    userGet
+  } = useUser();
   onMounted(async () => await userGet(props.id))
 </script>
 

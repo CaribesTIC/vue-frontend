@@ -33,6 +33,11 @@ const routes = [{
     meta: { middleware: [auth] },
     component: () => import("@/views/Profile.vue"),
 }, {
+    path: "/xsers",
+    name: "xsers",
+    meta: { middleware: [auth] },
+    component: () => import("@/views/Xsers/Index.vue"),  
+}, {
     path: "/users",
     name: "users",
     meta: { middleware: [auth] },
