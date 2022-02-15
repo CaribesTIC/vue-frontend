@@ -7,12 +7,14 @@
       <router-link 
         to="/login" 
         class="btn btn-primary"
+        data-testid="login-link"
       >
         Iniciar sesión
       </router-link>
       <router-link
         to="/register"
         class="btn btn-default"
+        data-testid="register-link"
       >
         Registrarse
       </router-link>

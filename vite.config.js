@@ -14,5 +14,9 @@ export default defineConfig({
     'process.env': {
       VUE_APP_API_URL: "http://localhost:8000" //"http://backend.entrepreneur.com",        
     }
-  }
+  },
+  test: {
+    globals: true,
+    environment: "jsdom",
+  },
 })
