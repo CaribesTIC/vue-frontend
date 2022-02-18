@@ -6,6 +6,7 @@
       <router-link
         to="/register"
         class="text-gray-500 transition hover:text-gray-600"
+        data-testid="register-link"
         >Regístrese para obtener una cuenta</router-link
       >
     </p>
