@@ -27,11 +27,11 @@ const routes = [{
     name: "Products",
     meta: { middleware: [auth], layout: "default" },
     component: () => import("@/views/Shopcart/Tabs.vue").then(m => m.default),
-}, {
-    path: "/profile",
-    name: "profile",
-    meta: { middleware: [auth] },
-    component: () => import("@/views/Profile.vue").then(m => m.default),
+//}, {
+//    path: "/profile",
+//    name: "profile",
+//    meta: { middleware: [auth] },
+//    component: () => import("@/views/Profile.vue").then(m => m.default),
 }, {
     path: "/xsers",
     name: "xsers",
@@ -70,16 +70,16 @@ const routes = [{
     name: "register",
     meta: { middleware: [guest], layout: "empty" },
     component: () => import("@/views/Register/Index.vue").then(m => m.default),
-}, {
-    path: "/reset-password",
-    name: "reset-password",
-    meta: { middleware: [guest], layout: "empty" },
-    component: () => import("@/views/ResetPassword.vue").then(m => m.default),
-}, {
-    path: "/forgot-password",
-    name: "forgot-password",
-    meta: { middleware: [guest], layout: "empty" },
-    component: () => import("@/views/ForgotPassword.vue" ).then(m => m.default),
+//}, {
+//    path: "/reset-password",
+//    name: "reset-password",
+//    meta: { middleware: [guest], layout: "empty" },
+//    component: () => import("@/views/ResetPassword.vue").then(m => m.default),
+//}, {
+//    path: "/forgot-password",
+//    name: "forgot-password",
+//    meta: { middleware: [guest], layout: "empty" },
+//    component: () => import("@/views/ForgotPassword.vue" ).then(m => m.default),
 }, {
     path: "/card",
     name: "card",
